@@ -1,0 +1,51 @@
+
+$value: green;
+$base-font: 24px;
+
+$mobile: "(max-width: 768px)";
+$tablet: "(min-width: 768px) and (max-width: 1023px)";
+$desktop: "(min-width: 1024px)";
+
+@mixin tablet {
+  @media #{$desktop} {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media #{$mobile} {
+    @content;
+  }
+}
+
+html,body{
+  font-size: $base-font;
+}
+
+.main {
+  color: $value;
+  &__selection { 
+    
+    &--content {
+      
+      @include tablet {
+        font-size: 1rem;
+      }
+      
+      @include mobile {
+        font-size: 1.2rem;
+      }
+      
+      &--link {
+        font-weight: yellow;
+        &:hover { 
+          color: magenta; 
+        }
+      }
+    }
+  } 
+}
+
+
+
+ 
