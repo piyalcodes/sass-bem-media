@@ -1,0 +1,74 @@
+<style>
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  z-index: $levelOne;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.popup-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $levelOne;
+
+  .popup {
+    position: static;
+
+    .popup-body {
+      z-index: $levelTwo;;
+      margin: auto;
+      background-color: #ffffff;
+      top: 30vh;
+      width: 90vw;
+      padding: 30px;
+      border-radius: 5px;
+      position: relative;
+      box-shadow: 0px 2px 10px 4px  palette(grey, base);
+
+      
+      &--close {
+        position: absolute;
+        top: -10px;
+        right: -9px;
+        background-color: #ffffff;
+        border-radius: 50%;
+        width: 30px;
+        padding: 3px;
+        text-align: center;
+        color: $color-primary;
+        height: 30px;
+        box-sizing: border-box;
+        border: 1px solid $color-primary;
+
+        &:hover {
+          cursor: pointer;
+          background-color: $color-primary;
+          color: #ffffff;
+        }
+      }
+ 
+    }
+  }
+}
+</style>
+
+<div class="popup-overlay"></div>
+<div class="popup-modal">
+    <div class="popup">
+        <div class="popup-body">
+            <button  class="popup-body--close">X</button>
+            <h3><slot name="popup-title"></slot></h3>
+            <p><slot name="popup-content"></slot></p>
+            <div class="popup-body--button-wrapper">
+                <slot name="popup-actions"></slot>
+            </div>
+        </div>
+    </div>
+</div>
